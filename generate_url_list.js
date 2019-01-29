@@ -18,6 +18,7 @@ function generateURLList () {
     return
   }
   var c = 0
+  var urlList = ""
   hosts.forEach(function (host) {
     var names = host.hostnames
     var hostId = host._id
@@ -36,12 +37,13 @@ function generateURLList () {
         protocol = 'https://'
       }
       c++
-      console.log(protocol + host.ipv4 + ':' + service.port)
+      urlList += protocol + host.ipv4 + ':' + service.port + "\n"
       names.forEach(function (n) {
         c++
-        console.log(protocol + n + ':' + service.port)
+        urlList += protocol + n + ':' + service.port + "\n"
       })
     })
   })
+  console.log(urlList)
   console.log(c + ' URL(s) generated')
 }
