@@ -1,11 +1,12 @@
 /* eslint-disable no-unused-vars */
 /* globals Session Hosts Services Meteor */
 
-function generateURLList () {
+function generateURLList (a) {
   // Generate a list of URLs for all http(s) services in the current project
   //
   // Created by: Dan Kottmann
-  // Usage: generateURLList()
+  // Usages: generateURLList()
+  //         generateURLList(1)
   // Requires client-side updates: false
 
   var projectId = Session.get('projectId')
@@ -44,6 +45,9 @@ function generateURLList () {
       })
     })
   })
+  if (a) {
+    alert(urlList)
+  }
   console.log(urlList)
   console.log(c + ' URL(s) generated')
 }
